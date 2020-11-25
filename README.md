@@ -10,7 +10,7 @@
     This repository provides <b>a trivial example</b> for demonstration purposes of an Deep Learning AI that can be trained to predict purchase invoices' routing, cost centers, accounts and vatStatuses.
   </p>
   <p align="center">
-    This repo does <b>not</b> reflect how AI Inside by FabricAI is trained and used.
+    This repo does <b>not</b> reflect how <a href="https://fabricai.fi/ai-inside/" target="_blank">AI Inside by FabricAI</a> is trained and used.
   </p>
 </p>
 
@@ -28,11 +28,23 @@ So be aware of the marketing hype and only make judgements based on real data!
 
 Artificial Intelligence in accounting is quickly gaining interest in larger corporations and government agencies, who are trying to both increase quality and lower cost of their purchase invoice processes.
 
-Nowadays, it seems that traditional RPA and manual rule-based solutions have seen their time in the spotlight, and everyone is either planning to, actively investigating on how to implement a custom Deep Learning AI into their purchase invoice processes.
+Nowadays, it seems that traditional RPA and manual rule-based solutions have had their time in the spotlight, and everyone is either
 
-Currently most [advanced Deep Learning AI solutions](https://fabricai.fi/) are currently used by everyday SMEs who are using Netvisor, Procountor, Fivaldi or Tripletex as their accounting software.
+-   planning to, or
+-   actively investigating on how to
 
-This repository is meant to be a warning to anyone who is planning to invest in a custom AI project without a deeper understanding on what an AI is and how it actually works. With this repository, anyone with minimal coding experience can train their own Deep Learning AI with Tensorflow to predict purchase invoices' `routing`, `cost centers`, `accounts` and `vatStatuses`.
+implement a custom Deep Learning AI into their purchase invoice processes.
+
+Currently most [advanced Deep Learning AI solutions](https://fabricai.fi/) are used everyday by SMEs who are using Netvisor, Procountor, Fivaldi or Tripletex as their accounting software.
+
+This repository is meant to be a warning to anyone who is planning to invest in a custom AI project:
+
+-   without a deeper understanding on what an AI is, and
+-   how an AI actually works.
+
+With this repository, anyone with minimal coding experience and no AI experience, can train their own Deep Learning AI with Tensorflow to predict purchase invoices' `routing`, `cost centers`, `accounts` and `vatStatuses`.
+
+## Note
 
 There are currently [off-the-shelf options](https://github.com/fabricai/ai-inside) for purchase invoice AI that can be objectively compared and evaluated.
 
