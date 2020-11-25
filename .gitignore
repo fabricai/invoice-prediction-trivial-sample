@@ -1,0 +1,6 @@
+/build/
+/node_modules/
+/_trash/
+/.vscode/
+/tsconfig.tsbuildinfo
+/data
