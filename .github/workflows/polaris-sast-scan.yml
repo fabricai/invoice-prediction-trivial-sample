@@ -1,0 +1,13 @@
+name: Scheduled SAST Scan
+
+on:
+    # Schedule the workflow to run every Saturday at 3:00 in the morning
+    schedule:
+        - cron: '0 3 * * 6'
+    # And on pull requests
+    pull_request:
+
+jobs:
+    trigger-sast-scan:
+        uses: fabricai/github-action-workflows/.github/workflows/polaris-sast-scan.yml@main
+        secrets: inherit
