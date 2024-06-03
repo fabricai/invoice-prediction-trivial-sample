@@ -1,13 +1,28 @@
 name: Scheduled SAST Scan
 
 on:
-    # Schedule the workflow to run every Saturday at 3:00 in the morning
-    schedule:
-        - cron: '0 3 * * 6'
-    # And on pull requests
-    pull_request:
+  schedule:
+    - cron: '0 3 * * 6'
+  pull_request:
 
 jobs:
-    trigger-sast-scan:
-        uses: fabricai/github-action-workflows/.github/workflows/polaris-sast-scan.yml@main
-        secrets: inherit
+  polaris-sast-scan:
+    name: Security Scans
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+          
+      - name: Static Analysis with Polaris
+        env:
+          POLARIS_SERVER_URL: ${{ secrets.POLARIS_SERVER_URL }}
+          POLARIS_ACCESS_TOKEN: ${{ secrets.POLARIS_ACCESS_TOKEN }}
+        run: |
+            set -e
+            wget -q "${POLARIS_SERVER_URL}/api/tools/polaris_cli-linux64.zip"
+            mkdir -p /tmp/polaris
+            unzip -o polaris_cli-linux64.zip -d /tmp/polaris
+            /tmp/polaris/*/bin/polaris analyze
