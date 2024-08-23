@@ -1,12 +1,14 @@
-import minimist from 'minimist';
-const { epochs = 10 } = minimist(process.argv.slice(2));
+import path from 'node:path';
+import fs from 'node:fs'
 
-import * as tf from '@tensorflow/tfjs-node-gpu';
-import path from 'path';
-import jsonfile from 'jsonfile';
-import { oneHotEncode } from './oneHotEncode';
-import { encodeSentence } from './encodeSentence';
+import * as tf from '@tensorflow/tfjs-node';
+import minimist from 'minimist';
+
 import { ICoa } from '../interfaces';
+import { encodeSentence } from './encodeSentence';
+import { oneHotEncode } from './oneHotEncode';
+
+const { epochs = 10 } = minimist(process.argv.slice(2));
 
 const MAX_SENTENCE_LENGTH = 2;
 /**
@@ -14,8 +16,8 @@ const MAX_SENTENCE_LENGTH = 2;
  */
 export const train = async (): Promise<tf.History> => {
     const dataRoot = path.join(__dirname, '../../data');
-    const wordToIndex = jsonfile.readFileSync(path.join(dataRoot, 'wordToIndex.json')) as ICoa;
-    const labelToIndex = jsonfile.readFileSync(path.join(dataRoot, 'labelToIndex.json')) as ICoa;
+    const wordToIndex = JSON.parse(fs.readFileSync(path.join(dataRoot, 'wordToIndex.json'), 'utf-8')) as ICoa;
+    const labelToIndex = JSON.parse(fs.readFileSync(path.join(dataRoot, 'labelToIndex.json'), 'utf-8')) as ICoa;
 
     /**
      * Generate the train and test tensors

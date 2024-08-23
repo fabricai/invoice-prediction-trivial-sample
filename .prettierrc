@@ -1,5 +1,16 @@
 {
+    "plugins": ["@trivago/prettier-plugin-sort-imports"],
     "singleQuote": true,
     "printWidth": 100,
-    "tabWidth": 4
+    "tabWidth": 4,
+    "importOrder": [
+        "^node:(.*)$",
+        "^@core/(.*)$",
+        "<THIRD_PARTY_MODULES>",
+        "^@fabricai/(.*)$",
+        "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "importOrderParserPlugins": ["typescript"]
 }
