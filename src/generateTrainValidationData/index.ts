@@ -1,12 +1,12 @@
-import minimist from 'minimist';
-const { noise = 0.9 } = minimist(process.argv.slice(2));
+import fs from 'node:fs';
+import path from 'node:path';
 
-import path from 'path';
-import fs from 'fs';
-import jsonfile from 'jsonfile';
+import minimist from 'minimist';
 
 import { EConstants, ICoa, ICountInstances, ISample } from '../interfaces';
 import { coa } from './coa';
+
+const { noise = 0.9 } = minimist(process.argv.slice(2));
 
 const SIZE_OF_TRAIN_DATA = 500;
 const SIZE_OF_VALIDATION_DATA = 200;
@@ -96,7 +96,7 @@ export const generateTrainValidationData = async (): Promise<void> => {
         path.join(folderToSave, '/validation.csv'),
         validationData.map((o) => Object.values(o).join(',')).join('\r\n') + '\r\n'
     );
-    jsonfile.writeFileSync(path.join(folderToSave, '/labelToIndex.json'), labelToIndex);
-    jsonfile.writeFileSync(path.join(folderToSave, '/indexToLabel.json'), indexToLabel);
-    jsonfile.writeFileSync(path.join(folderToSave, '/wordToIndex.json'), wordToIndex);
+    fs.writeFileSync(path.join(folderToSave, '/labelToIndex.json'), JSON.stringify(labelToIndex));
+    fs.writeFileSync(path.join(folderToSave, '/indexToLabel.json'), JSON.stringify(indexToLabel));
+    fs.writeFileSync(path.join(folderToSave, '/wordToIndex.json'), JSON.stringify(wordToIndex));
 };

@@ -1,7 +1,10 @@
 import minimist from 'minimist';
-const { noise, epochs } = minimist(process.argv.slice(2));
+
 import { generateTrainValidationData } from './generateTrainValidationData/index';
 import { train } from './train/index';
+
+const { noise, epochs } = minimist(process.argv.slice(2));
+
 /**
  *
  */

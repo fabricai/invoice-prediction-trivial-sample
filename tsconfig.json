@@ -1,17 +1,21 @@
 {
     "compilerOptions": {
-        "skipLibCheck": true,
-        "module": "commonjs",
-        "noImplicitReturns": true,
-        "noUnusedLocals": true,
-        "outDir": "./build",
-        "rootDir": "./src",
-        "declaration": true,
-        "sourceMap": true,
-        "strict": true,
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-        "target": "es2017"
+        "module": "commonjs", // Defines the module system, here it's CommonJS
+        "noImplicitReturns": true, // Ensures all code paths in a function explicitly return a value
+        "skipLibCheck": true, // Skips type checking of declaration files (*.d.ts)
+        "noUnusedLocals": true, // Reports errors on unused local variables
+        "outDir": "./build", // Redirect output structure to the directory
+        "rootDir": "./src", // Specifies the root directory of input files
+        "declaration": true, // Generates corresponding '.d.ts' file for each output '.js' file
+        "sourceMap": true, // Generates corresponding '.map' file for each output '.js' file
+        "strict": true, // Enables all strict type-checking options
+        "resolveJsonModule": true, // Allows importing '.json' files
+        "esModuleInterop": true, // Enables compatibility with Babel/TypeScript's handling of ES6 modules
+        "target": "es2020", // Set the JavaScript language version for emitted JavaScript and include compatible library declarations
+        "experimentalDecorators": true, // Enables experimental support for decorators, which is a stage 2 proposal for JavaScript
+        "forceConsistentCasingInFileNames": true // Disallow inconsistently-cased references to the same file
     },
-    "compileOnSave": true
+    "include": ["src/**/*"], // Include all files in the src directory
+    "exclude": ["node_modules", "build"], // Exclude node_modules and build directories from the compilation
+    "compileOnSave": true // Recompile files on save
 }

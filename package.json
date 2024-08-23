@@ -1,34 +1,30 @@
 {
-    "name": "@fabricai/typescript-template",
+    "name": "@fabricai/invoice-prediction-trivial-sample",
     "version": "1.0.0",
-    "description": "Template for FabricAI's TypeScript projects",
+    "description": "Trivial sample on training a model to predict invoice label(s)",
     "private": true,
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
     "scripts": {
-        "update-deps": "rm -rf ./node_modules && ncu -u --dep prod && npm i",
+        "update-deps": "ncu -u -x '/eslint/' && npm i",
         "build": "rm -rf ./build && tsc",
-        "publish": "npm run build && npm publish"
+        "publish": "npm run build && npm publish",
+        "format": "prettier --write ./src"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fabricai/typescript-template.git"
+        "url": "git+https://github.com/fabricai/invoice-prediction-trivial-sample.git"
     },
     "devDependencies": {
-        "@types/minimist": "^1.2.1",
-        "@typescript-eslint/eslint-plugin": "^3.6.1",
-        "@typescript-eslint/parser": "^3.6.1",
-        "eslint": "^7.4.0",
-        "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-import": "^2.22.0",
-        "ncu": "^0.2.1",
-        "prettier": "^2.0.5",
-        "typescript": "^3.9.6"
+        "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+        "@types/minimist": "^1.2.5",
+        "@types/node": "^22.5.0",
+        "npm-check-updates": "^17.1.0",
+        "prettier": "^3.3.3",
+        "typescript": "^5.5.4"
     },
     "dependencies": {
-        "@tensorflow/tfjs-node-gpu": "^2.7.0",
-        "@types/jsonfile": "^6.0.0",
-        "jsonfile": "^6.1.0",
-        "minimist": "^1.2.5"
+        "@tensorflow/tfjs-node": "^4.20.0",
+        "minimist": "^1.2.8"
     }
 }
